@@ -1,0 +1,73 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "raycast-extension-github",
+  "description": "Use GitHub in Raycast.",
+  "categories": [
+    "Developer Tools"
+  ],
+  "license": "MIT",
+  "author": "jiakun-zhao",
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "publish": "npx @raycast/api@latest publish"
+  },
+  "eslintConfig": {
+    "extends": "@raycast"
+  },
+  "dependencies": {
+    "@octokit/rest": "^19.0.8",
+    "@raycast/api": "^1.51.1",
+    "@raycast/utils": "^1.6.1"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "1.0.5",
+    "@types/node": "20.1.7",
+    "@types/react": "18.2.6",
+    "eslint": "^8.40.0",
+    "typescript": "^5.0.4"
+  },
+  "icon": "icon.png",
+  "preferences": [
+    {
+      "name": "auth",
+      "title": "Personal access tokens",
+      "description": "github.com > Settings > Developer settings > Personal access tokens",
+      "type": "password",
+      "required": true
+    },
+    {
+      "name": "baseUrl",
+      "title": "API base url",
+      "description": "default is https://api.github.com",
+      "type": "textfield",
+      "required": false
+    }
+  ],
+  "commands": [
+    {
+      "name": "repos",
+      "title": "Repositories",
+      "description": "List your repositories.",
+      "mode": "view",
+      "icon": "repo.png"
+    },
+    {
+      "name": "stars",
+      "title": "Stars",
+      "description": "List repositories you starred.",
+      "mode": "view",
+      "icon": "star.png"
+    },
+    {
+      "name": "following",
+      "title": "Following",
+      "description": "List users you are following.",
+      "mode": "view",
+      "icon": "person.png"
+    }
+  ],
+  "title": "GitHub"
+}
