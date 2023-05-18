@@ -15,7 +15,7 @@
     "publish": "npx @raycast/api@latest publish"
   },
   "eslintConfig": {
-    "extends": "@raycast"
+    "extends": "@jiakun-zhao"
   },
   "dependencies": {
     "@octokit/rest": "^19.0.8",
@@ -23,29 +23,13 @@
     "@raycast/utils": "^1.6.1"
   },
   "devDependencies": {
-    "@raycast/eslint-config": "1.0.5",
+    "@jiakun-zhao/eslint-config": "0.0.10",
     "@types/node": "20.1.7",
     "@types/react": "18.2.6",
     "eslint": "^8.40.0",
     "typescript": "^5.0.4"
   },
   "icon": "icon.png",
-  "preferences": [
-    {
-      "name": "auth",
-      "title": "Personal access tokens",
-      "description": "github.com > Settings > Developer settings > Personal access tokens",
-      "type": "password",
-      "required": true
-    },
-    {
-      "name": "baseUrl",
-      "title": "API base url",
-      "description": "default is https://api.github.com",
-      "type": "textfield",
-      "required": false
-    }
-  ],
   "commands": [
     {
       "name": "repos",
@@ -67,6 +51,23 @@
       "description": "List users you are following.",
       "mode": "view",
       "icon": "person.png"
+    }
+  ],
+  "owner": "seclusion",
+  "preferences": [
+    {
+      "name": "auth",
+      "title": "Personal access tokens",
+      "description": "github.com > Settings > Developer settings > Personal access tokens",
+      "type": "password",
+      "required": true
+    },
+    {
+      "name": "baseUrl",
+      "title": "API base url",
+      "description": "default is https://api.github.com",
+      "type": "textfield",
+      "required": false
     }
   ],
   "title": "GitHub"
