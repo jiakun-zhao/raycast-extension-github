@@ -2,11 +2,12 @@
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "raycast-extension-github",
   "description": "Use GitHub in Raycast.",
+  "author": "jiakun-zhao",
+  "license": "MIT",
   "categories": [
     "Developer Tools"
   ],
-  "license": "MIT",
-  "author": "jiakun-zhao",
+  "icon": "icon.png",
   "scripts": {
     "build": "ray build -e dist",
     "dev": "ray develop",
@@ -14,43 +15,54 @@
     "lint": "ray lint",
     "publish": "npx @raycast/api@latest publish"
   },
-  "eslintConfig": {
-    "extends": "@jiakun-zhao"
-  },
   "dependencies": {
-    "@octokit/rest": "^19.0.8",
-    "@raycast/api": "^1.51.1",
-    "@raycast/utils": "^1.6.1"
+    "@octokit/rest": "^20.0.2",
+    "@raycast/api": "^1.63.0",
+    "@raycast/utils": "^1.10.1"
   },
   "devDependencies": {
-    "@jiakun-zhao/eslint-config": "0.0.11",
-    "@types/node": "20.1.7",
-    "@types/react": "18.2.6",
-    "eslint": "^8.40.0",
-    "typescript": "^5.0.4"
+    "@jiakun-zhao/eslint-config": "1.3.1",
+    "@types/node": "20.8.10",
+    "@types/react": "18.2.27",
+    "eslint": "^8.55.0",
+    "node-fetch": "^3.3.2",
+    "typescript": "^5.3.3"
   },
-  "icon": "icon.png",
+  "eslintConfig": {
+    "extends": "@jiakun-zhao",
+    "ignorePatterns": [
+      "raycast-env.d.ts"
+    ]
+  },
   "commands": [
     {
       "name": "repos",
-      "title": "Repositories",
-      "description": "List your repositories.",
+      "title": "Repos",
+      "description": "List your repos.",
       "mode": "view",
       "icon": "repo.png"
     },
     {
       "name": "stars",
       "title": "Stars",
-      "description": "List repositories you starred.",
+      "description": "List repo you starred.",
       "mode": "view",
       "icon": "star.png"
     },
     {
-      "name": "following",
-      "title": "Following",
-      "description": "List users you are following.",
+      "name": "followed",
+      "title": "Followed",
+      "description": "List users you are followed.",
       "mode": "view",
       "icon": "person.png"
+    },
+    {
+      "name": "sync",
+      "title": "Sync",
+      "description": "Sync GitHub data.",
+      "mode": "no-view",
+      "icon": "icon.png",
+      "interval": "6h"
     }
   ],
   "preferences": [
@@ -60,13 +72,6 @@
       "description": "github.com > Settings > Developer settings > Personal access tokens",
       "type": "password",
       "required": true
-    },
-    {
-      "name": "baseUrl",
-      "title": "API base url",
-      "description": "default is https://api.github.com",
-      "type": "textfield",
-      "required": false
     }
   ],
   "title": "GitHub"

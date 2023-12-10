@@ -4,9 +4,9 @@ import { Action, ActionPanel, List } from '@raycast/api'
 export function ListError() {
   return (
     <List.EmptyView
-      icon="😢"
-      title="Something went wrong..."
-      description="Check the network or try again later..."
+      icon='😢'
+      title='Something went wrong...'
+      description='Check the network or try again later...'
     />
   )
 }
@@ -17,7 +17,7 @@ export function RepoActionPanel(repo: Repo) {
   return (
     <ActionPanel>
       <Action.OpenInBrowser url={repo.html_url} />
-      <Action.CopyToClipboard title="Copy Projj Add Command" content={`projj add ${repo.html_url}`} />
+      <Action.CopyToClipboard title='Copy url' content={repo.html_url} />
     </ActionPanel>
   )
 }

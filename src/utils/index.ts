@@ -1,12 +1,24 @@
 import { Octokit } from '@octokit/rest'
-import { getPreferenceValues } from '@raycast/api'
+import { LocalStorage, getPreferenceValues } from '@raycast/api'
+import fetch from 'node-fetch'
+import * as functions from './functions'
 
-let octokit: Octokit | undefined
+type Functions = typeof functions
+type Key = keyof Functions
+type Value<T extends Key> = Promise<Awaited<ReturnType<Functions[T]>>>
 
-export function getOctokit() {
-  return octokit ?? (octokit = new Octokit(getPreferenceValues<ExtensionPreferences>()))
+async function fetchFromGitHub(key: Key) {
+  const { auth } = getPreferenceValues<ExtensionPreferences>()
+  const octokit = new Octokit({ auth, request: { fetch } })
+  return await functions[key](octokit) as unknown
 }
 
-export function strDate2Num(strDate: string | null) {
-  return new Date(strDate ?? '0000-00-00 00:00:00').getTime()
+export async function get<T extends Key>(key: T): Value<T> {
+  const value = await LocalStorage.getItem<string>(`github-${key}`)
+  return value ? JSON.parse(value) : []
+}
+
+export async function set(key: Key) {
+  const value = await fetchFromGitHub(key)
+  await LocalStorage.setItem(`github-${key}`, JSON.stringify(value))
 }
