@@ -4,8 +4,8 @@ import fetch from 'node-fetch'
 import * as functions from './functions'
 
 type Functions = typeof functions
-type Key = keyof Functions
 type Value<T extends Key> = Promise<Awaited<ReturnType<Functions[T]>>>
+export type Key = keyof Functions
 
 async function fetchFromGitHub(key: Key) {
   const { auth } = getPreferenceValues<ExtensionPreferences>()
