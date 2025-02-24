@@ -1,6 +1,6 @@
 # GitHub
 
-Use GitHub in Raycast.
+GitHub Extension for Raycast
 
 ### Usage
 

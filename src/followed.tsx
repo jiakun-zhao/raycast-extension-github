@@ -1,7 +1,7 @@
 import { Action, ActionPanel, Image, List } from '@raycast/api'
 import { usePromise } from '@raycast/utils'
-import { ListError } from './utils/components'
 import { get } from './utils'
+import { ListError } from './utils/components'
 
 export default function Command() {
   const { isLoading, data, error } = usePromise(() => get('followed'))
@@ -16,15 +16,14 @@ export default function Command() {
                 icon={{ source: user.avatar_url, mask: Image.Mask.Circle }}
                 key={user.login}
                 title={user.login}
-                actions={
+                actions={(
                   <ActionPanel>
                     <Action.OpenInBrowser url={user.html_url} />
                   </ActionPanel>
-              }
+                )}
               />
             ),
-          ))
-      }
+          ))}
     </List>
   )
 }

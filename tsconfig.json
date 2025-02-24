@@ -3,15 +3,20 @@
   "display": "Node 16",
   "compilerOptions": {
     "target": "es2021",
-    "lib": ["es2021"],
     "jsx": "react-jsx",
+    "lib": [
+      "es2021"
+    ],
     "module": "commonjs",
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
+    "isolatedModules": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*", "raycast-env.d.ts"]
+  "include": [
+    "src/**/*",
+    "raycast-env.d.ts"
+  ]
 }

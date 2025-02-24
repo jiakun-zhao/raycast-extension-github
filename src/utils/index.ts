@@ -1,5 +1,5 @@
 import { Octokit } from '@octokit/rest'
-import { LocalStorage, getPreferenceValues } from '@raycast/api'
+import { getPreferenceValues, LocalStorage } from '@raycast/api'
 import fetch from 'node-fetch'
 import * as functions from './functions'
 

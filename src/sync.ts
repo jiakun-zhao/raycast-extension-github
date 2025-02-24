@@ -1,4 +1,4 @@
-import { LaunchType, Toast, environment, showToast, updateCommandMetadata } from '@raycast/api'
+import { environment, LaunchType, showToast, Toast, updateCommandMetadata } from '@raycast/api'
 import { set } from './utils'
 
 export default async function Command() {
