@@ -13,3 +13,7 @@ GitHub Extension for Raycast
 ### Commands
 
 See [package.json](./package.json) -> `commands`
+
+### LICENSE
+
+MIT License © 2025-PRESENT [Jiakun Zhao](https://github.com/jiakun-zhao)
