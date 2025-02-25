@@ -15,7 +15,7 @@ export default function Command() {
               <List.Item
                 icon={repo.private ? Icon.Lock : { source: Icon.LockUnlocked, tintColor: Color.Green }}
                 key={repo.full_name}
-                title={repo.name + repo.fork + repo.private + repo.is_template}
+                title={repo.name}
                 subtitle={{ value: repo.description }}
                 accessories={[{ icon: Icon.Star, text: repo.stargazers_count.toString() }]}
                 actions={RepoActionPanel(repo)}
